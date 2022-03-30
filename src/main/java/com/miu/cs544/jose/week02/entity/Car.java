@@ -2,6 +2,8 @@ package com.miu.cs544.jose.week02.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Car implements Serializable {
@@ -26,6 +28,22 @@ public class Car implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "owner_2")
     private Owner owner2;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "CAR_DRIVERS",
+            joinColumns = @JoinColumn(name = "car_id"),
+            inverseJoinColumns = @JoinColumn(name = "driver_id")
+    )
+    private List<Driver> drivers = new ArrayList<>();
+
+    public void setDriver(Driver driver) {
+        this.drivers.add(driver);
+    }
+
+    private List<Driver> getDrivers() {
+        return new ArrayList<>(this.drivers);
+    }
 
     public Car() {
     }

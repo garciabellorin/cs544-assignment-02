@@ -57,17 +57,10 @@ public class Main {
         fusion.setOwner2(mary);
         sentra.setOwner1(james);
 
-
-
-
-//        james.addCarOwner(mustang);
-//        robert.addCarOwner(mustang);
-//        Mary should be 3rd owner but is limited to two.
-//        mary.addCarOwner(mustang);
-
-//        fusion.setInsuranceCompany(stateFarm);
-//        sentra.setInsuranceCompany(stateFarm);
-//        mustang.setInsuranceCompany(geico);
+        // Assign car drivers
+        fusion.setDriver(linda);
+        fusion.setDriver(susan);
+        sentra.setDriver(linda);
 
 
         tx.begin();
