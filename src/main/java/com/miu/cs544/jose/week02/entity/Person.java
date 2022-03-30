@@ -11,8 +11,6 @@ public class Person implements Serializable {
     private Long id;
     private String name;
     private String dob;
-    @ManyToMany(mappedBy = "owners", cascade = CascadeType.ALL)
-    private List<Car> carsOwned = new ArrayList<>();
 
     public Person() {
     }
@@ -46,20 +44,6 @@ public class Person implements Serializable {
         this.dob = dob;
     }
 
-    public void addCarOwner(Car car) {
-        this.carsOwned.add(car);
-        car.addOwner(this);
-    }
-
-    public void removeCarOwner(Car car) {
-        this.carsOwned.remove(car);
-        car.removeOwner(this);
-    }
-
-    public List<Car> getCarsOwned() {
-        return Collections.unmodifiableList(carsOwned);
-    }
-
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Person{");
@@ -79,8 +63,7 @@ public class Person implements Serializable {
 
         if (!getId().equals(person.getId())) return false;
         if (!getName().equals(person.getName())) return false;
-        if (!getDob().equals(person.getDob())) return false;
-        return carsOwned.equals(person.carsOwned);
+        return getDob().equals(person.getDob());
     }
 
     @Override
@@ -88,7 +71,6 @@ public class Person implements Serializable {
         int result = getId().hashCode();
         result = 31 * result + getName().hashCode();
         result = 31 * result + getDob().hashCode();
-        result = 31 * result + carsOwned.hashCode();
         return result;
     }
 }

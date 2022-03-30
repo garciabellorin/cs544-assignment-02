@@ -13,8 +13,6 @@ public class InsuranceCompany extends Company implements Serializable {
     @GeneratedValue
     private Long id;
     private int rating;
-    @OneToOne(mappedBy = "insuranceCompany", optional = true)
-    private Car car;
 
     public InsuranceCompany() {
     }

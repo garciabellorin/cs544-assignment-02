@@ -1,6 +1,7 @@
 package com.miu.cs544.jose.week02.entity;
 
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Null;
 
 @Embeddable
 public class Address {
@@ -75,6 +76,7 @@ public class Address {
 
     @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
