@@ -2,6 +2,7 @@ package com.miu.cs544.jose.week02.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -44,6 +45,20 @@ public class CarManufacturer extends Company implements Serializable {
 
     public void setYearEstablished(int yearEstablished) {
         this.yearEstablished = yearEstablished;
+    }
+
+    public Set<Car> getCars(){
+        return Collections.unmodifiableSet(cars);
+    }
+
+    public boolean addCar(Car car){
+        car.setManufacturer(this);
+        return this.addCar(car);
+    }
+
+    public boolean removeCar(Car car){
+        car.setManufacturer(null);
+        return this.removeCar(car);
     }
 
     @Override

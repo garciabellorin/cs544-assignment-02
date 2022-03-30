@@ -40,6 +40,14 @@ public class Car implements Serializable {
         this.model = model;
     }
 
+    public CarManufacturer getManufacturer(){
+        return manufacturer;
+    }
+
+    public void setManufacturer(CarManufacturer manufacturer){
+        this.manufacturer = manufacturer;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Car{");
