@@ -6,6 +6,8 @@
     <persistence-unit name="PU">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>com.miu.cs544.jose.week02.entity.Person</class>
+        <class>com.miu.cs544.jose.week02.entity.Owner</class>
+        <class>com.miu.cs544.jose.week02.entity.Driver</class>
         <class>com.miu.cs544.jose.week02.entity.CarManufacturer</class>
         <class>com.miu.cs544.jose.week02.entity.InsuranceCompany</class>
         <class>com.miu.cs544.jose.week02.entity.Car</class>

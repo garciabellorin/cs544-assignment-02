@@ -14,11 +14,11 @@ public class Main {
         EntityTransaction tx = em.getTransaction();
 
         // Create Persons in DB
-        Person james = new Person("James", "01/01/2000");
-        Person robert = new Person("Robert", "02/02/2002");
-        Person mary = new Person("Mary", "09/09/1999");
-        Person linda = new Person("Linda", "08/08/1988");
-        Person susan = new Person("Susan", "07/07/1997");
+        Owner james = new Owner("James", "01/01/2000");
+        Owner robert = new Owner("Robert", "02/02/2002");
+        Owner mary = new Owner("Mary", "09/09/1999");
+//        Person linda = new Dri("Linda", "08/08/1988");
+//        Person susan = new Person("Susan", "07/07/1997");
 
         // Create Addresses and Companies
         // Car Manufacturers Addresses
@@ -45,6 +45,19 @@ public class Main {
         Car mustang = new Car(ford, "Mustang", 2022);
         Car yukon = new Car(generalMotors, "Yukon", 2020);
         Car hummer = new Car(generalMotors, "Hummer", 2009);
+
+        // Assign Insurance Company to Car
+        fusion.setInsuranceCompany(geico);
+        hummer.setInsuranceCompany(stateFarm);
+        mustang.setInsuranceCompany(stateFarm);
+        yukon.setInsuranceCompany(geico);
+
+        // Assign car owners
+        fusion.setOwner1(robert);
+        fusion.setOwner2(mary);
+        sentra.setOwner1(james);
+
+
 
 
 //        james.addCarOwner(mustang);
@@ -75,8 +88,8 @@ public class Main {
         em.persist(james);
         em.persist(robert);
         em.persist(mary);
-        em.persist(linda);
-        em.persist(susan);
+//        em.persist(linda);
+//        em.persist(susan);
 
         tx.commit();
         em.close();

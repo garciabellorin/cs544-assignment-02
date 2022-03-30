@@ -2,6 +2,7 @@ package com.miu.cs544.jose.week02.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 public class Car implements Serializable {
@@ -10,9 +11,19 @@ public class Car implements Serializable {
     private Long id;
     private String model;
     private int year;
-    @JoinColumn(name = "manufacturer_id", nullable = false)
+
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "manufacturer_id", nullable = false)
     private CarManufacturer manufacturer;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "insurance_company_id", nullable = true)
+    private InsuranceCompany insuranceCompany;
+
+    @OneToOne
+    private Owner owner1;
+    @OneToOne
+    private Owner owner2;
 
     public Car() {
     }
@@ -40,12 +51,44 @@ public class Car implements Serializable {
         this.model = model;
     }
 
-    public CarManufacturer getManufacturer(){
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public CarManufacturer getManufacturer() {
         return manufacturer;
     }
 
-    public void setManufacturer(CarManufacturer manufacturer){
+    public void setManufacturer(CarManufacturer manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    public InsuranceCompany getInsuranceCompany() {
+        return insuranceCompany;
+    }
+
+    public void setInsuranceCompany(InsuranceCompany insuranceCompany) {
+        this.insuranceCompany = insuranceCompany;
+    }
+
+    public Owner getOwner1() {
+        return owner1;
+    }
+
+    public void setOwner1(Owner owner1) {
+        this.owner1 = owner1;
+    }
+
+    public Owner getOwner2() {
+        return owner2;
+    }
+
+    public void setOwner2(Owner owner2) {
+        this.owner2 = owner2;
     }
 
     @Override
