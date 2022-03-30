@@ -17,8 +17,8 @@ public class Main {
         Owner james = new Owner("James", "01/01/2000");
         Owner robert = new Owner("Robert", "02/02/2002");
         Owner mary = new Owner("Mary", "09/09/1999");
-//        Person linda = new Dri("Linda", "08/08/1988");
-//        Person susan = new Person("Susan", "07/07/1997");
+        Driver linda = new Driver("Linda", "08/08/1988");
+        Driver susan = new Driver("Susan", "07/07/1997");
 
         // Create Addresses and Companies
         // Car Manufacturers Addresses
@@ -88,8 +88,8 @@ public class Main {
         em.persist(james);
         em.persist(robert);
         em.persist(mary);
-//        em.persist(linda);
-//        em.persist(susan);
+        em.persist(linda);
+        em.persist(susan);
 
         tx.commit();
         em.close();

@@ -7,9 +7,6 @@ import java.util.Set;
 @Entity
 public class Owner extends Person {
 
-//    @GeneratedValue
-//    private Long id;
-
     @OneToMany(mappedBy = "owner1")
     private Set<Car> cars = new HashSet<>();
 
@@ -19,16 +16,6 @@ public class Owner extends Person {
     public Owner(String name, String dob) {
         super(name, dob);
     }
-
-//    @Override
-//    public Long getId() {
-//        return id;
-//    }
-
-//    @Override
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
 
     public boolean addCar(Car car) {
         return this.addCar(car);

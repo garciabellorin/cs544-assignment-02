@@ -5,6 +5,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
+          <factory-entry name="PU" />
           <factory-entry name="Person_PU" />
           <factory-entry name="default" />
         </datasource-mapping>

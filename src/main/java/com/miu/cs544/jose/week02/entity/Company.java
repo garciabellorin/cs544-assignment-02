@@ -5,7 +5,7 @@ import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
 @MappedSuperclass
-public class Company {
+public class Company implements Serializable{
 
     private String name;
     @Embedded
