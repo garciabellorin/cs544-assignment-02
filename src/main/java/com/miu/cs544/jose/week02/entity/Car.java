@@ -2,7 +2,6 @@ package com.miu.cs544.jose.week02.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 public class Car implements Serializable {
@@ -20,9 +19,12 @@ public class Car implements Serializable {
     @JoinColumn(name = "insurance_company_id", nullable = true)
     private InsuranceCompany insuranceCompany;
 
-    @OneToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "owner_1")
     private Owner owner1;
-    @OneToOne
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "owner_2")
     private Owner owner2;
 
     public Car() {
@@ -86,7 +88,7 @@ public class Car implements Serializable {
     public Owner getOwner2() {
         return owner2;
     }
-
+//
     public void setOwner2(Owner owner2) {
         this.owner2 = owner2;
     }

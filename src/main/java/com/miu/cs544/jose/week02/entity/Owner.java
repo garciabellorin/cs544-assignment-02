@@ -1,14 +1,16 @@
 package com.miu.cs544.jose.week02.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 public class Owner extends Person {
 
-    @OneToMany
+//    @GeneratedValue
+//    private Long id;
+
+    @OneToMany(mappedBy = "owner1")
     private Set<Car> cars = new HashSet<>();
 
     public Owner() {
@@ -18,11 +20,21 @@ public class Owner extends Person {
         super(name, dob);
     }
 
-    public boolean addCar(Car car){
-        return cars.add(car);
+//    @Override
+//    public Long getId() {
+//        return id;
+//    }
+
+//    @Override
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+
+    public boolean addCar(Car car) {
+        return this.addCar(car);
     }
 
-    public boolean removeCar(Car car){
+    public boolean removeCar(Car car) {
         return cars.remove(car);
     }
 
