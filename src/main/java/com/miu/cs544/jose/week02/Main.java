@@ -53,14 +53,18 @@ public class Main {
         yukon.setInsuranceCompany(geico);
 
         // Assign car owners
-        fusion.setOwner1(robert);
-        fusion.setOwner2(mary);
-        sentra.setOwner1(james);
+        fusion.setOwner(robert);
+        fusion.setOwner(james);
+        sentra.setOwner(mary);
+        sentra.setOwner(james);
+        //Mary will not persist since ownership limit is 2 persons per car
+        fusion.setOwner(mary);
 
         // Assign car drivers
         fusion.setDriver(linda);
         fusion.setDriver(susan);
         sentra.setDriver(linda);
+        sentra.setDriver(susan);
 
 
         tx.begin();

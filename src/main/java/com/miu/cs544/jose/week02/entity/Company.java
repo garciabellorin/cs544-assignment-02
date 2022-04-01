@@ -34,30 +34,4 @@ public class Company implements Serializable {
     public void setAddress(Address address) {
         this.address = address;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Company company = (Company) o;
-
-        if (!getName().equals(company.getName())) return false;
-        return getAddress().equals(company.getAddress());
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getName().hashCode();
-        result = 31 * result + getAddress().hashCode();
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Company: ");
-        sb.append(name).append("\n");
-        sb.append(address);
-        return sb.toString();
-    }
 }

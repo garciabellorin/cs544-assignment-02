@@ -53,34 +53,4 @@ public class InsuranceCompany extends Company implements Serializable {
         car.setInsuranceCompany(null);
         return this.removeCar(car);
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        InsuranceCompany that = (InsuranceCompany) o;
-
-        if (getRating() != that.getRating()) return false;
-        return getId().equals(that.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + getId().hashCode();
-        result = 31 * result + getRating();
-        return result;
-    }
-
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("InsuranceCompany{");
-        sb.append("id=").append(id);
-        sb.append(", rating=").append(rating);
-        sb.append('}');
-        return sb.toString();
-    }
 }
